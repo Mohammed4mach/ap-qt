@@ -1,2 +1,4 @@
-# ap-qt
-Audio Player using Qt and libmpv
+# AP Qt
+
+Audio Player using libmpv and Qt
+
