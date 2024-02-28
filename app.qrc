@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/play.png</file>
+        <file>assets/previous.png</file>
+        <file>assets/fast-forward.png</file>
+        <file>assets/volume-up.png</file>
+        <file>assets/volume-down.png</file>
+        <file>assets/speed-up.png</file>
+        <file>assets/speed-down.png</file>
+        <file>assets/close.png</file>
+        <file>assets/close-red.png</file>
+        <file>assets/close-red-rounded.png</file>
+        <file>assets/pause.png</file>
+    </qresource>
+</RCC>

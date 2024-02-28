@@ -8,111 +8,132 @@
  */
 class Mpv
 {
-  private:
+private:
     mpv_handle * _handle;
 
     /**
-     * Change property value of type double
-     *
-     * @param name Name of the property
-     * @param amount Amount to be added to the property value
-     */
+         * Change property value of type double
+         *
+         * @param name Name of the property
+         * @param amount Amount to be added to the property value
+         */
     double change_double_property(char * name, double amount);
 
-  public:
+public:
     /**
-     * Construct new `Mpv` object.
-     * `mpv_handle` is created and initialized during this method.
-     */
+         * Construct new `Mpv` object.
+         * `mpv_handle` is created and initialized during this method.
+         */
     Mpv();
 
     /**
-     * Load track
-     *
-     * @param path Path to the file
-     */
+         * Load track
+         *
+         * @param path Path to the file
+         */
     void loadfile(char * path);
 
     /**
-     * Play/Pause current track
-     */
+         * Get file name
+         */
+    char * filename();
+
+    /**
+         * Play/Pause current track
+         */
     void toggle_play();
 
     /**
-     * Change volume of the track
-     *
-     * @param amount Amount to be added to current volume level
-     *
-     * @return new level after change
-     */
+         * Change volume of the track
+         *
+         * @param amount Amount to be added to current volume level
+         *
+         * @return new level after change
+         */
     double change_volume(double amount);
 
     /**
-     * Increase volume of the track
-     *
-     * @param amount Amount to be added to current volume level
-     *
-     * @return new level after increase
-     */
+         * Increase volume of the track
+         *
+         * @param amount Amount to be added to current volume level
+         *
+         * @return new level after increase
+         */
     double volume_up(double amount);
 
     /**
-     * Deacrease volume of the track
-     *
-     * @param amount Amount to be subtracted from current volume level
-     *
-     * @return new level after deacrease
-     */
+         * Deacrease volume of the track
+         *
+         * @param amount Amount to be subtracted from current volume level
+         *
+         * @return new level after deacrease
+         */
     double volume_down(double amount);
 
     /**
-     * Change playing speed of the track
-     *
-     * @param amount Amount to be added to current speed
-     *
-     * @return current speed
-     */
+         * Change playing speed of the track
+         *
+         * @param amount Amount to be added to current speed
+         *
+         * @return current speed
+         */
     double change_speed(double amount);
 
     /**
-     * Increase playing speed of the track
-     *
-     * @param amount Amount to be added to current speed
-     *
-     * @return current speed
-     */
+         * Increase playing speed of the track
+         *
+         * @param amount Amount to be added to current speed
+         *
+         * @return current speed
+         */
     double speed_up(double amount);
 
     /**
-     * Decrease playing speed of the track
-     *
-     * @param amount Amount to be subtracted from current speed
-     *
-     * @return current speed
-     */
+         * Decrease playing speed of the track
+         *
+         * @param amount Amount to be subtracted from current speed
+         *
+         * @return current speed
+         */
     double speed_down(double amount);
 
     /**
-     * Seek forward the track
-     *
-     * @param seconds Number of seconds to seek forward
-     *
-     * @return seconds passed
-     */
+         * Seek forward the track
+         *
+         * @param seconds Number of seconds to seek forward
+         *
+         * @return seconds passed
+         */
     double seek_forward(double seconds);
 
     /**
-     * Seek backward the track
-     *
-     * @param seconds Number of seconds to seek backward
-     *
-     * @return seconds passed
-     */
+         * Seek backward the track
+         *
+         * @param seconds Number of seconds to seek backward
+         *
+         * @return seconds passed
+         */
     double seek_backward(double seconds);
 
     /**
-     * Free the `mpv_handle` variable
-     */
+         * Get event.
+         * This will blocks untill event is received.
+         *
+         * @param timeout Timeout in seconds
+         */
+    mpv_event * get_event(double timeout = 0);
+
+    /**
+         * Set wakeup callback.
+         *
+         * @param callback The callback function
+         * @param data Data passed to the callback
+         */
+    void set_wakeup_callback(void (* callback)(void * data), void * data);
+
+    /**
+         * Free the `mpv_handle` variable
+         */
     ~Mpv();
 };
 
