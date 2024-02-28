@@ -13,7 +13,7 @@ class Player : public QGroupBox
     Q_OBJECT
 
 public:
-    explicit Player(QWidget *parent = nullptr, char * file = (char *)"");
+    explicit Player(QWidget *parent = nullptr, QString file = "");
     ~Player();
 
 private slots:
@@ -42,7 +42,7 @@ private slots:
 private:
     Ui::Player *ui;
     Mpv * mpv;
-    char * file;
+    QString file;
     bool played;
     bool finished;
 };

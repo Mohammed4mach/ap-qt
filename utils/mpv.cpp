@@ -27,6 +27,18 @@ double Mpv::change_double_property(char * name, double amount)
     return new_value;
 }
 
+void Mpv::change_flag_property(char * name, bool on)
+{
+    int flag = on ? 1 : 0;
+
+    mpv_set_property(this->_handle, name, MPV_FORMAT_FLAG, &flag);
+}
+
+void Mpv::change_string_property(char * name, char * value)
+{
+    mpv_set_option_string(this->_handle, name, value);
+}
+
 void Mpv::loadfile(char * path)
 {
     const char * cmd[] = {"loadfile", path, NULL};
@@ -99,6 +111,16 @@ mpv_event * Mpv::get_event(double timeout)
 void Mpv::set_wakeup_callback(void (* callback)(void * data), void * data)
 {
     mpv_set_wakeup_callback(this->_handle, callback, data);
+}
+
+void Mpv::set_no_video(bool on)
+{
+    change_flag_property((char *)"no-video", on);
+}
+
+void Mpv::disable_video()
+{
+    change_string_property((char *)"vo", (char *)"null");
 }
 
 Mpv::~Mpv()

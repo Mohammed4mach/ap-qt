@@ -11,7 +11,7 @@ static void wakeup(void * player)
     emit widget->mpv_events();
 }
 
-Player::Player(QWidget *parent, char * file)
+Player::Player(QWidget *parent, QString file)
     : QGroupBox(parent)
     , ui(new Ui::Player),
     file(file)
@@ -26,15 +26,17 @@ Player::Player(QWidget *parent, char * file)
     {
         mpv = new Mpv();
 
-        mpv->loadfile(file);
+        mpv->loadfile((char *)file.toLocal8Bit().constData());
         played = true;
         finished = false;
 
-        QString name = QString(QString(file).split(QDir::separator()).last());
+        QString name = QString(file.split(QDir::separator()).last());
         ui->name->setText(name);
 
         connect(this, &Player::mpv_events, this, &Player::on_mpvEvents, Qt::QueuedConnection);
         mpv->set_wakeup_callback(wakeup, this);
+
+        mpv->disable_video();
     }
     catch(int error)
     {
@@ -80,7 +82,7 @@ void Player::on_btn_play_clicked()
 {
     if(finished)
     {
-        mpv->loadfile(file);
+        mpv->loadfile((char *)file.toLocal8Bit().data());
 
         played = true;
         finished = false;
