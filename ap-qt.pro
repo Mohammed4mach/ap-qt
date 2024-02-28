@@ -9,17 +9,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    forms/libraryitem.cpp \
     forms/player.cpp \
     main.cpp \
     mainwindow.cpp \
     utils/mpv.cpp
 
 HEADERS += \
+    forms/libraryitem.h \
     forms/player.h \
     mainwindow.h \
     utils/mpv.h
 
 FORMS += \
+    forms/libraryitem.ui \
     forms/player.ui \
     mainwindow.ui
 

@@ -11,5 +11,10 @@
         <file>assets/close-red.png</file>
         <file>assets/close-red-rounded.png</file>
         <file>assets/pause.png</file>
+        <file>assets/add.png</file>
+        <file>assets/play-green.png</file>
+        <file>assets/remove.png</file>
+        <file>assets/remove-rounded.png</file>
+        <file>assets/cross.png</file>
     </qresource>
 </RCC>
