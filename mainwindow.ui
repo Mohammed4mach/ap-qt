@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>821</width>
     <height>600</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>-2</x>
       <y>0</y>
-      <width>301</width>
+      <width>331</width>
       <height>601</height>
      </rect>
     </property>
@@ -52,7 +52,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>281</width>
+          <width>311</width>
           <height>538</height>
          </rect>
         </property>
@@ -90,6 +90,19 @@
          <bool>true</bool>
         </property>
        </widget>
+       <widget class="QLineEdit" name="input_search">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>8</y>
+          <width>261</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string notr="true">Search...</string>
+        </property>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -97,9 +110,9 @@
    <widget class="QWidget" name="players" native="true">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>320</x>
       <y>0</y>
-      <width>511</width>
+      <width>501</width>
       <height>601</height>
      </rect>
     </property>
@@ -129,7 +142,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>491</width>
+          <width>481</width>
           <height>581</height>
          </rect>
         </property>

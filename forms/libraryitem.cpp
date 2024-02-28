@@ -10,8 +10,8 @@ LibraryItem::LibraryItem(QWidget *parent, QString file)
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    QString name = file.split(QDir::separator()).last();
-    ui->name->setText(name);
+    track_name = QFileInfo(file).fileName();
+    ui->name->setText(track_name);
 
     ui->btn_play->setIcon(QIcon(":/assets/play-green.png"));
     ui->btn_play->setIconSize(QSize(30, 30));
@@ -38,4 +38,9 @@ QString LibraryItem::get_track()
 void LibraryItem::on_btn_play_clicked()
 {
     emit library_item_played(this);
+}
+
+QString LibraryItem::get_track_name()
+{
+    return track_name;
 }

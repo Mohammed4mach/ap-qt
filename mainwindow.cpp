@@ -40,11 +40,17 @@ void MainWindow::on_btn_add_clicked()
         refresh_library_list();
 }
 
-void MainWindow::refresh_library_list()
+void MainWindow::refresh_library_list(bool fetch)
 {
     try
     {
-        QStringList tracks = LibraryManager::get_tracks();
+        if(fetch)
+        {
+            QStringList tracks = LibraryManager::get_tracks();
+
+            track_list = tracks;
+            listed_tracks = tracks;
+        }
 
         auto layout = ui->library_content->layout();
 
@@ -57,7 +63,7 @@ void MainWindow::refresh_library_list()
             widget->close();
         }
 
-        foreach(QString track, tracks)
+        foreach(QString track, listed_tracks)
         {
             LibraryItem * item = new LibraryItem(nullptr, track);
 
@@ -86,5 +92,23 @@ void MainWindow::on_libraryItemPlayed(LibraryItem * item)
 {
     QString path = item->get_track();
 
-    ui->players_content->layout()->addWidget(new Player(nullptr, (char *)path.toLocal8Bit().constData()));
+    ui->players_content->layout()->addWidget(new Player(nullptr, path));
+}
+
+void MainWindow::on_input_search_textChanged(const QString &query)
+{
+    listed_tracks.clear();
+
+    foreach(QString track, track_list)
+    {
+        QString filename = QFileInfo(track).fileName();
+
+        if(filename.contains(query))
+            listed_tracks.append(track);
+    }
+
+    if(query.isEmpty())
+        listed_tracks = track_list;
+
+    refresh_library_list(false);
 }

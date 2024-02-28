@@ -15,6 +15,7 @@ public:
     explicit LibraryItem(QWidget *parent = nullptr, QString file = "");
     ~LibraryItem();
     QString get_track();
+    QString get_track_name();
 
 signals:
     void library_item_removed(LibraryItem * item);
@@ -27,6 +28,7 @@ private slots:
 private:
     Ui::LibraryItem *ui;
     QString track;
+    QString track_name;
 };
 
 #endif // LIBRARYITEM_H
