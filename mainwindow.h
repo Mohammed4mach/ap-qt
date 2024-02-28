@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "forms/libraryitem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +21,8 @@ public:
 
 private slots:
     void on_btn_add_clicked();
+    void on_libraryItemRemoved(LibraryItem * item);
+    void on_libraryItemPlayed(LibraryItem * item);
 
 private:
     Ui::MainWindow *ui;

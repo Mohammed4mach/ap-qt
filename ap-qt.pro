@@ -13,12 +13,14 @@ SOURCES += \
     forms/player.cpp \
     main.cpp \
     mainwindow.cpp \
+    utils/librarymanager.cpp \
     utils/mpv.cpp
 
 HEADERS += \
     forms/libraryitem.h \
     forms/player.h \
     mainwindow.h \
+    utils/librarymanager.h \
     utils/mpv.h
 
 FORMS += \

@@ -2,14 +2,15 @@
 #include "ui_libraryitem.h"
 #include <QDir>
 
-LibraryItem::LibraryItem(QWidget *parent, char * file)
+LibraryItem::LibraryItem(QWidget *parent, QString file)
     : QGroupBox(parent)
     , ui(new Ui::LibraryItem)
+    , track(file)
 {
     this->setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
 
-    QString name = QString(QString(file).split(QDir::separator()).last());
+    QString name = file.split(QDir::separator()).last();
     ui->name->setText(name);
 
     ui->btn_play->setIcon(QIcon(":/assets/play-green.png"));
@@ -26,6 +27,15 @@ LibraryItem::~LibraryItem()
 
 void LibraryItem::on_btn_delete_clicked()
 {
-    close();
+    emit library_item_removed(this);
 }
 
+QString LibraryItem::get_track()
+{
+    return track;
+}
+
+void LibraryItem::on_btn_play_clicked()
+{
+    emit library_item_played(this);
+}

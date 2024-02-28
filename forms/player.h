@@ -33,11 +33,11 @@ private slots:
 
     void on_btn_backward_clicked();
 
-private slots:
-    void on_mpvEvents();
-
 signals:
     void mpv_events();
+
+private slots:
+    void on_mpvEvents();
 
 private:
     Ui::Player *ui;
