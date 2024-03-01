@@ -59,12 +59,6 @@ Player::Player(QWidget *parent, QString file)
     ui->btn_backward->setIcon(QIcon(":/assets/previous.png"));
     ui->btn_backward->setIconSize(QSize(25, 25));
 
-    ui->btn_volume_up->setIcon(QIcon(":/assets/volume-up.png"));
-    ui->btn_volume_up->setIconSize(QSize(25, 25));
-
-    ui->btn_volume_down->setIcon(QIcon(":/assets/volume-down.png"));
-    ui->btn_volume_down->setIconSize(QSize(25, 25));
-
     ui->btn_speed_up->setIcon(QIcon(":/assets/speed-up.png"));
     ui->btn_speed_up->setIconSize(QSize(25, 25));
 
@@ -108,18 +102,6 @@ void Player::on_btn_play_clicked()
 void Player::on_btn_close_clicked()
 {
     close();
-}
-
-void Player::on_btn_volume_up_clicked()
-{
-    double volume = mpv->volume_up(10);
-    ui->lbl_volume->setText(QString::number(volume));
-}
-
-void Player::on_btn_volume_down_clicked()
-{
-    double volume = mpv->volume_down(10);
-    ui->lbl_volume->setText(QString::number(volume));
 }
 
 void Player::on_btn_speed_up_clicked()
@@ -181,4 +163,10 @@ void Player::on_btn_reverse_pressed()
 void Player::on_btn_reverse_released()
 {
     mpv->play_forward();
+}
+
+void Player::on_slider_volume_valueChanged(int value)
+{
+    double new_value = mpv->set_volume(value);
+    ui->lbl_volume->setText(QString::number(new_value));
 }

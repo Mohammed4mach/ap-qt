@@ -21,10 +21,6 @@ private slots:
 
     void on_btn_close_clicked();
 
-    void on_btn_volume_up_clicked();
-
-    void on_btn_volume_down_clicked();
-
     void on_btn_speed_up_clicked();
 
     void on_btn_speed_down_clicked();
@@ -44,6 +40,8 @@ private slots:
     void on_btn_reverse_pressed();
 
     void on_btn_reverse_released();
+
+    void on_slider_volume_valueChanged(int value);
 
 private:
     Ui::Player *ui;

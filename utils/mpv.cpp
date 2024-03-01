@@ -13,6 +13,14 @@ Mpv::Mpv()
         throw -1;
 }
 
+double Mpv::set_double_property(char * name, double value)
+{
+    mpv_set_property(this->_handle, name, MPV_FORMAT_DOUBLE, &value);
+    mpv_get_property(this->_handle, name, MPV_FORMAT_DOUBLE, &value);
+
+    return value;
+}
+
 double Mpv::change_double_property(char * name, double amount)
 {
     double current_value = 0.000000;
@@ -76,6 +84,11 @@ double Mpv::volume_up(double amount)
 double Mpv::volume_down(double amount)
 {
     return this->change_volume(-amount);
+}
+
+double Mpv::set_volume(double value)
+{
+    return this->set_double_property((char *)"volume", value);
 }
 
 double Mpv::change_speed(double amount)

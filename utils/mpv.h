@@ -12,6 +12,14 @@ private:
     mpv_handle * _handle;
 
     /**
+     * Set property value of type double
+     *
+     * @param name Name of the property
+     * @param value The new value of the property
+     */
+    double set_double_property(char * name, double value);
+
+    /**
      * Change property value of type double
      *
      * @param name Name of the property
@@ -85,6 +93,15 @@ public:
      * @return new level after deacrease
      */
     double volume_down(double amount);
+
+    /**
+     * Set volume value
+     *
+     * @param value The new value of volume
+     *
+     * @return new level after setting
+     */
+    double set_volume(double value);
 
     /**
      * Change playing speed of the track
