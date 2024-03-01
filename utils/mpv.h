@@ -160,6 +160,11 @@ public:
     void disable_video();
 
     /**
+     * Get track title
+     */
+    char * get_title();
+
+    /**
      * Free the `mpv_handle` variable
      */
     ~Mpv();

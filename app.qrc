@@ -16,5 +16,9 @@
         <file>assets/remove.png</file>
         <file>assets/remove-rounded.png</file>
         <file>assets/cross.png</file>
+        <file>assets/internet.png</file>
+        <file>assets/worldwide.png</file>
+        <file>assets/music-on-the-cloud.png</file>
+        <file>assets/music-note.png</file>
     </qresource>
 </RCC>

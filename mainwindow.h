@@ -25,6 +25,8 @@ private slots:
     void on_libraryItemPlayed(LibraryItem * item);
     void on_input_search_textChanged(const QString &query);
 
+    void on_btn_url_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList track_list;

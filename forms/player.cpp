@@ -30,7 +30,9 @@ Player::Player(QWidget *parent, QString file)
         played = true;
         finished = false;
 
-        QString name = QString(file.split(QDir::separator()).last());
+        // QString name = QString(file.split(QDir::separator()).last());
+
+        QString name = QString(mpv->get_title());
         ui->name->setText(name);
 
         connect(this, &Player::mpv_events, this, &Player::on_mpvEvents, Qt::QueuedConnection);
@@ -148,11 +150,17 @@ void Player::on_mpvEvents()
         if(event->event_id == MPV_EVENT_NONE)
             break;
 
-        if(event->event_id == MPV_EVENT_END_FILE)
+        switch(event->event_id)
         {
-            finished = true;
-            played = false;
-            ui->btn_play->setIcon(QIcon(":/assets/play.png"));
+            case MPV_EVENT_END_FILE:
+                finished = true;
+                played = false;
+                ui->btn_play->setIcon(QIcon(":/assets/play.png"));
+                return;
         }
     }
+
+    char * title = mpv->get_title();
+    QString name = QString(title);
+    ui->name->setText(name);
 }

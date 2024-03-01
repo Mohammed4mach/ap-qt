@@ -123,6 +123,13 @@ void Mpv::disable_video()
     change_string_property((char *)"vo", (char *)"null");
 }
 
+char * Mpv::get_title()
+{
+    char * title = mpv_get_property_string(this->_handle, (char *)"media-title");
+
+    return title;
+}
+
 Mpv::~Mpv()
 {
     mpv_destroy(this->_handle);
