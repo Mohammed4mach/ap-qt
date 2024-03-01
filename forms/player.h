@@ -39,6 +39,8 @@ signals:
 private slots:
     void on_mpvEvents();
 
+    void on_chk_pitch_correction_toggled(bool checked);
+
 private:
     Ui::Player *ui;
     Mpv * mpv;

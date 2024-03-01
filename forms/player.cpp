@@ -30,8 +30,6 @@ Player::Player(QWidget *parent, QString file)
         played = true;
         finished = false;
 
-        // QString name = QString(file.split(QDir::separator()).last());
-
         QString name = QString(mpv->get_title());
         ui->name->setText(name);
 
@@ -72,6 +70,8 @@ Player::Player(QWidget *parent, QString file)
 
     ui->btn_speed_down->setIcon(QIcon(":/assets/speed-down.png"));
     ui->btn_speed_down->setIconSize(QSize(25, 25));
+
+    ui->chk_pitch_correction->setChecked(true);
 }
 
 Player::~Player()
@@ -163,4 +163,9 @@ void Player::on_mpvEvents()
     char * title = mpv->get_title();
     QString name = QString(title);
     ui->name->setText(name);
+}
+
+void Player::on_chk_pitch_correction_toggled(bool checked)
+{
+    mpv->set_pitch_correction(checked);
 }

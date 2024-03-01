@@ -130,6 +130,14 @@ char * Mpv::get_title()
     return title;
 }
 
+void Mpv::set_pitch_correction(bool on)
+{
+    char * name = (char *)"audio-pitch-correction";
+    char * value = on ? (char *)"yes" : (char *)"no";
+
+    change_string_property(name, value);
+}
+
 Mpv::~Mpv()
 {
     mpv_destroy(this->_handle);

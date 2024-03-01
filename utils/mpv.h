@@ -165,6 +165,11 @@ public:
     char * get_title();
 
     /**
+     * Enable/Disable pitch correction
+     */
+    void set_pitch_correction(bool on = true);
+
+    /**
      * Free the `mpv_handle` variable
      */
     ~Mpv();
