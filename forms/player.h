@@ -41,6 +41,10 @@ private slots:
 
     void on_chk_pitch_correction_toggled(bool checked);
 
+    void on_btn_reverse_pressed();
+
+    void on_btn_reverse_released();
+
 private:
     Ui::Player *ui;
     Mpv * mpv;

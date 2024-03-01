@@ -71,6 +71,9 @@ Player::Player(QWidget *parent, QString file)
     ui->btn_speed_down->setIcon(QIcon(":/assets/speed-down.png"));
     ui->btn_speed_down->setIconSize(QSize(25, 25));
 
+    ui->btn_reverse->setIcon(QIcon(":/assets/play-reverse.png"));
+    ui->btn_reverse->setIconSize(QSize(25, 25));
+
     ui->chk_pitch_correction->setChecked(true);
 }
 
@@ -168,4 +171,14 @@ void Player::on_mpvEvents()
 void Player::on_chk_pitch_correction_toggled(bool checked)
 {
     mpv->set_pitch_correction(checked);
+}
+
+void Player::on_btn_reverse_pressed()
+{
+    mpv->play_backward();
+}
+
+void Player::on_btn_reverse_released()
+{
+    mpv->play_forward();
 }

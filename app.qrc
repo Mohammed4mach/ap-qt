@@ -20,5 +20,6 @@
         <file>assets/worldwide.png</file>
         <file>assets/music-on-the-cloud.png</file>
         <file>assets/music-note.png</file>
+        <file>assets/play-reverse.png</file>
     </qresource>
 </RCC>

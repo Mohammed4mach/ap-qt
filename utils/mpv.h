@@ -166,8 +166,27 @@ public:
 
     /**
      * Enable/Disable pitch correction
+     *
+     * @param on On or off
      */
     void set_pitch_correction(bool on = true);
+
+    /**
+     * Set playing direction
+     *
+     * @param direction Direction of the play, forward or backward
+     */
+    void set_play_direction(const char * direction = "forward");
+
+    /**
+     * Set playing direction to be forward
+     */
+    void play_forward();
+
+    /**
+     * Set playing direction to be backward
+     */
+    void play_backward();
 
     /**
      * Free the `mpv_handle` variable

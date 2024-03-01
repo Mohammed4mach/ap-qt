@@ -115,12 +115,12 @@ void Mpv::set_wakeup_callback(void (* callback)(void * data), void * data)
 
 void Mpv::set_no_video(bool on)
 {
-    change_flag_property((char *)"no-video", on);
+    this->change_flag_property((char *)"no-video", on);
 }
 
 void Mpv::disable_video()
 {
-    change_string_property((char *)"vo", (char *)"null");
+    this->change_string_property((char *)"vo", (char *)"null");
 }
 
 char * Mpv::get_title()
@@ -135,7 +135,25 @@ void Mpv::set_pitch_correction(bool on)
     char * name = (char *)"audio-pitch-correction";
     char * value = on ? (char *)"yes" : (char *)"no";
 
-    change_string_property(name, value);
+    this->change_string_property(name, value);
+}
+
+void Mpv::set_play_direction(const char * direction)
+{
+    char * name = (char *) "play-direction";
+    char * value = (char *) direction;
+
+    this->change_string_property(name, value);
+}
+
+void Mpv::play_forward()
+{
+    this->set_play_direction((const char *) "forward");
+}
+
+void Mpv::play_backward()
+{
+    this->set_play_direction((const char *) "backward");
 }
 
 Mpv::~Mpv()
