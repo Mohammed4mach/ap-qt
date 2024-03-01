@@ -1,0 +1,13 @@
+QMainWindow
+{
+  background: #edf2f4;
+}
+
+#players_content,
+#library_content,
+#library_header,
+#groupBox
+{
+  background: #edf2f4;
+}
+

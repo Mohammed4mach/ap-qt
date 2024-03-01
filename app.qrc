@@ -21,5 +21,6 @@
         <file>assets/music-on-the-cloud.png</file>
         <file>assets/music-note.png</file>
         <file>assets/play-reverse.png</file>
+        <file>stylesheets/main.css</file>
     </qresource>
 </RCC>

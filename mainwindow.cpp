@@ -13,6 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowFlag(Qt::MSWindowsFixedSizeDialogHint);
 
+    // Set stylesheet
+    QFile css = QFile(":/stylesheets/main.css");
+
+    if(css.open(QIODevice::ReadOnly))
+        setStyleSheet(QString(css.readAll()));
+
     ui->btn_add->setIcon(QIcon(":/assets/add.png"));
     ui->btn_add->setIconSize(QSize(20, 20));
 
