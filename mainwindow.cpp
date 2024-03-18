@@ -39,7 +39,7 @@ void MainWindow::on_btn_add_clicked()
         this,
         tr("Select tracks"),
         "",
-        tr("Audio Files (*.m4a *.mp3 *.ogg *.oga *.mogg *.opus *.wav *.wma *.wv)")
+        tr("Audio Files (*.m4a *.mp3 *.ogg *.oga *.mogg *.opus *.wav *.wma *.wv *.mp4 *.mkv)")
     );
 
     if(paths.isEmpty())
